@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Circular Progress Bar - jQuery plugin</title>
+	<link charset="utf-8" href="stylesheet.css" rel="stylesheet" type="text/css">
+	<link href="css/ui-darkness/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css">
+	<script async src="http://www.google-analytics.com/ga.js" type="text/javascript">
+	</script>
+	<script src="js/jquery-1.6.2.min.js" type="text/javascript">
+	</script>
+	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript">
+	</script>
+	<script src="jCProgress-1.0.3.js" type="text/javascript">
+	</script>
+	<style media="screen" type="text/css">
+	         
+	          .jCProgress {
+	           position: absolute;
+	           z-index: 99999999;
+	           /*  margin-top:-15px;*/
+	          }
+	          .jCProgress > div.percent {
+	           font: 18px/27px 'BebasRegular', Arial, sans-serif;
+	           color:#ebebeb;
+	           text-shadow: 1px 1px 1px #1f1f1f;
+
+	           position:absolute;
+	           margin-top:40px;
+	           margin-left:22px;
+	           text-align: center;
+	           width:60px;
+	          }
+	</style>
+	<script type="text/javascript">
+	          $(document).ready(function(){
+
+	           options = {
+	                  img1: 'v1.png',
+	                  img2: 'v2.png',                 
+	                  speed: 2,               
+	                  percent: 0,
+	                  limit: 90,
+	                  onInit: function(){console.log('init');},
+	                  onProgress: function(p){/*console.log('progress',p);*/},
+	                  onComplete: function(p){console.log('complete',p);}
+	                 };
+
+	           myplugin = $('#p1').cprogress(options);
+	           var myplugin;
+
+	           $('#create').click(function(){
+	            if(!myplugin){
+	                 myplugin = $('#p1').cprogress(options);
+	            }
+	           });
+
+	           $('#destroy').click(function(){
+	            if(myplugin){
+	                 myplugin=myplugin.destroy();
+	            }
+	           });
+
+	           $('#play').click(function(){
+	            if(myplugin){
+	                 myplugin.start();
+	            }
+	           });
+
+	           $('#pause').click(function(){
+	            if(myplugin){
+	                 myplugin.stop();
+	            }
+	           });
+
+	           $('#reset').click(function(){
+	            if(myplugin){
+	                 myplugin.reset();
+	            }
+	           });
+
+	           $('#speed10').click(function(){
+	            if(myplugin){
+	                 myplugin.options({speed: 10});
+	            }
+	           });
+	           $('#speed23').click(function(){
+	            if(myplugin){
+	                 myplugin.options({speed: 23.8732415});
+	            }
+	           });
+
+	           $('#speed50').click(function(){
+	            if(myplugin){
+	                 myplugin.options({speed: 50});
+	            }
+	           });
+
+	           $('#speed100').click(function(){
+	            if(myplugin){
+	                 myplugin.options({speed: 100});
+	            }
+	           });
+
+	           $('#showp').click(function(){
+	            if(myplugin){
+	                 myplugin.options({showPercent: true});
+	            }
+	           });
+
+	           $('#hidep').click(function(){
+	            if(myplugin){
+	                 myplugin.options({showPercent: false});
+	            }
+	           });
+
+	           $('#limit20').click(function(){
+	            if(myplugin){
+	                 myplugin.options({limit: 20});
+	            }
+	           });
+	           $('#limit50').click(function(){
+	            if(myplugin){
+	                 myplugin.options({limit: 50});
+	            }
+	           });
+	           $('#limit100').click(function(){
+	            if(myplugin){
+	                 myplugin.options({limit: 100});
+	            }
+	           });
+	           $('#limit120').click(function(){
+	            if(myplugin){
+	                 myplugin.options({limit: 120});
+	            }
+	           });
+
+	           $('#pistep05').click(function(){
+	            if(myplugin){
+	                 myplugin.options({PIStep: 0.05});
+	            }
+	           });
+	           $('#pistep10').click(function(){
+	            if(myplugin){
+	                 myplugin.options({PIStep: 0.10});
+	            }
+	           });
+	           $('#pistep15').click(function(){
+	            if(myplugin){
+	                 myplugin.options({PIStep: 0.15});
+	            }
+	           });
+
+	           $('#goto20').click(function(){
+	            if(myplugin){
+	                 goToOptions = {
+	                  speed: 1,
+	                  // PIStep: 0.15,
+	                  stop: 0,
+	                  limit: 20
+	                 }
+	                 //oldOptions = myplugin.options();
+	                 myplugin.options(goToOptions)
+	            }
+	           });
+	           $('#goto50').click(function(){
+	            if(myplugin){
+	                 goToOptions = {
+	                  speed: 1,
+	                  // PIStep: 0.15,
+	                  stop: 0,
+	                  limit: 50
+	                 }
+	                 //oldOptions = myplugin.options();
+	                 myplugin.options(goToOptions)
+	            }
+	           });
+	           $('#goto100').click(function(){
+	            if(myplugin){
+	                 goToOptions = {
+	                  speed: 1,
+	                  //PIStep: 0.15,
+	                  stop: 0,
+	                  limit: 100
+	                 }
+	                 //oldOptions = myplugin.options();
+	                 myplugin.options(goToOptions)
+	            }
+	           });
+
+	           $('#skin1').click(function(){
+	            if(myplugin){
+	                 skinOptions = {
+	                  img1: 'v1.png',
+	                  img2: 'v2.png'
+	                 }
+	                 myplugin.options(skinOptions)
+	            }
+	           });
+	           $('#skin2').click(function(){
+	            if(myplugin){
+	                 skinOptions = {
+	                  img1: 'c1.png',
+	                  img2: 'c3.png'
+	                 }
+	                 myplugin.options(skinOptions)
+	            }
+	           });
+	           $('#skin3').click(function(){
+	            if(myplugin){
+	                 skinOptions = {
+	                  img1: 'x.png',
+	                  img2: 'x2.png',
+	                  showPercent: false
+	                 }
+	                 myplugin.options(skinOptions)
+	            }
+	           });
+
+	           //hover states on the static widgets
+	           $('.button').hover(
+	           function() { $(this).addClass('ui-state-hover'); },
+	           function() { $(this).removeClass('ui-state-hover'); }
+	          );
+
+	          });
+	</script>
+	
+
+</head>
+<body>
+	<div id="p1">
+		<div class="jCProgress" style="opacity: 1;">
+			<div class="percent"></div>
+			<canvas height="90" width="90"></canvas>
+		</div>
+	</div>			
+	<div style="clear:both;"></div>
+</body>
+</html>
